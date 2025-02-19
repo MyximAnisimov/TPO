@@ -1,24 +1,30 @@
 package itmo.tpo.sin
-import kotlin.math.*
 
-class Sin(val x: Double, val degree: Int) {
+import java.math.BigDecimal
+import java.math.MathContext
+import java.math.RoundingMode
 
-    fun decomposition(degree: Int, x: Double): Double{
-        var result = 0.0;
-        val acc = 1.0
-        for(i in 1..degree){
-            result += (((-1.0).pow(i.toDouble() - 1) * x.pow(2 * i.toDouble() - 1)) / factorial(acc, 2*i.toDouble() - 1))
+class Sin(val x: BigDecimal, val degree: Int) {
+
+    private val mc = MathContext(1000, RoundingMode.HALF_EVEN)
+
+    fun decomposition(x: BigDecimal, degree: Int): BigDecimal {
+        var result = BigDecimal.ZERO
+        for (i in 1..degree) {
+            val sign = if (i % 2 == 1) BigDecimal.ONE else BigDecimal(-1)
+            val term = sign.multiply(x.pow(2 * i - 1, mc), mc)
+                .divide(factorial(BigDecimal.ONE, 2 * i - 1), mc)
+
+            result = result.add(term, mc)
         }
-       return result
+        return result
     }
 
-    private fun factorial(counter: Double, number: Double) : Double{
-        return if(number > 0){
-            factorial(counter * number, number-1)
-        }
-        else{
+    private fun factorial(counter: BigDecimal, number: Int): BigDecimal {
+        return if (number > 0) {
+            factorial(counter.multiply(BigDecimal(number), mc), number - 1)
+        } else {
             counter
         }
     }
-
 }
