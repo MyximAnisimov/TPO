@@ -1,6 +1,8 @@
 package itmo.tpo.cool_story
 
 import itmo.tpo.cool_story.HumanActivities.Aknowledge
+import java.util.*
+import kotlin.collections.ArrayDeque
 import kotlin.random.Random
 
 
@@ -9,7 +11,6 @@ object Arthur : Creature(), HumanActivities {
     override var location = "с Фордом"
     override val knowledgeRate: Double = Random.nextDouble()
     override var aknowledge = Aknowledge.CLEVER
-
 
 
     val stateContext: StateContext = StateContext()
