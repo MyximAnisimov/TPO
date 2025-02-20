@@ -1,4 +1,9 @@
 package itmo.tpo.cool_story
 
-class Ford(name: String, location: String, knowledge: Int) :
-    Creature(name, location, knowledge)
+import kotlin.random.Random
+
+
+class Ford(name: String, location: String) :
+    Creature(name, location) {
+    override var knowledge: Double = Random.nextDouble()
+}
