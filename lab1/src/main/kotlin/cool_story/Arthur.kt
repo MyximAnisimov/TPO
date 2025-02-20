@@ -1,20 +1,37 @@
 package itmo.tpo.cool_story
 
+import itmo.tpo.cool_story.HumanActivities.Aknowledge
 import kotlin.random.Random
 
 
-class Arthur : Creature(), HumanActivities {
-    override var name = "Arthur"
-    override var location = "somewhere"
-    override var knowledgeRate: Double = Random.nextDouble()
-    override var aknowledge = HumanActivities.Aknowledge.CLEVER
+object Arthur : Creature(), HumanActivities {
+    override val name = "Артур"
+    override var location = "с Фордом"
+    override val knowledgeRate: Double = Random.nextDouble()
+    override var aknowledge = Aknowledge.CLEVER
 
-    override fun feel(stateContext: StateContext, location: String) {
-       println("Arthur feels good")
+
+
+    val stateContext: StateContext = StateContext()
+
+    override fun feel(otherHumanKnowledge: Aknowledge) {
+        when(stateContext.state) {
+            is WorkingState -> when(otherHumanKnowledge) {
+                Aknowledge.CLEVER -> println("Артур понял, что он самый тупой")
+                Aknowledge.STUPID -> println("Артур чувствует себя хорошо")
+            }
+            is ChillingState -> when(aknowledge) {
+                Aknowledge.CLEVER -> println("Артур пошел отдыхать")
+                Aknowledge.STUPID -> println("Артур пошел узнавать о Пекине")
+            }
+        }
     }
 
-    override fun compare(mosquitoK: Double, humanK: Double){
-        aknowledge = if(humanK < mosquitoK)  HumanActivities.Aknowledge.STUPID
-        else HumanActivities.Aknowledge.CLEVER
+    override fun comeCloserHouse() {
+        location = "почти дома"
     }
+
+    override fun comeHouse() {
+        location = "дома"
     }
+}

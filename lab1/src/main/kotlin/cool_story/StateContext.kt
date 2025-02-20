@@ -1,7 +1,7 @@
 package itmo.tpo.cool_story
 
 class StateContext {
-    private var _state: State = ChillingState()
+    private var _state: State = WorkingState()
 
     var state: State
         get() = _state

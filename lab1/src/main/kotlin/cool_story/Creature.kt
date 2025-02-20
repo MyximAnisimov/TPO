@@ -2,8 +2,8 @@ package itmo.tpo.cool_story
 
 
 abstract class Creature {
-    abstract var name: String
+    abstract val name: String
     abstract var location: String
-    abstract var knowledgeRate: Double
+    abstract val knowledgeRate: Double
 
 }
