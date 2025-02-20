@@ -1,5 +1,8 @@
 package itmo.tpo
 
+import itmo.tpo.cool_story.ChillingState
+import itmo.tpo.cool_story.Ford
+import itmo.tpo.cool_story.StateContext
 import itmo.tpo.hash_table.HashTable
 import itmo.tpo.sin.Sin
 import java.math.BigDecimal
@@ -20,4 +23,9 @@ fun main() {
 
     testHashTable.put("Egor", 101)
     println(testHashTable)
+
+    val st = StateContext()
+    st.state = ChillingState()
+    val ford = Ford()
+    ford.feel(st, "Около дома")
 }

@@ -3,7 +3,7 @@ package itmo.tpo.cool_story
 import kotlin.random.Random
 
 class WorkingState: State {
-    private val name: String = "Ввозится"
+    private val name: String = "Возится"
 
     override fun getName(): String = name;
 
