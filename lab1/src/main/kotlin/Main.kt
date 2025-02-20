@@ -18,5 +18,6 @@ fun main() {
     val sin = Sin(BigDecimal(Math.PI), 10)
     println("calculation result of sin(${sin.x}) with first ${sin.degree} members of the series: ${sin.decomposition(sin.x, sin.degree)}")
 
+    testHashTable.put("Egor", 101)
     println(testHashTable)
 }

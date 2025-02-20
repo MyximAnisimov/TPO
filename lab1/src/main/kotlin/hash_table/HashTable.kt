@@ -11,6 +11,9 @@ class HashTable<K, V : Comparable<V>>(private val size: Int = 20) {
             table[keyHash] = mutableListOf(Pair(key, value))
         } else {
             table[keyHash]
+                ?.find { it.first == key }
+                ?.let {table[keyHash]?.remove(it) }
+            table[keyHash]
                 ?.binarySearch { it.second.compareTo(value) }
                 ?.let { table[keyHash]?.add(-(it + 1), Pair(key, value)) }
         }

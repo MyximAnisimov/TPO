@@ -14,6 +14,6 @@ class SinTest {
     @ValueSource(doubles = [0.0, Math.PI, 0.00001, 1e-6, -1e-6, Math.PI/6, Math.PI/4, Math.PI/2, -Math.PI/6, -Math.PI/4, -Math.PI/2, 10.0, -242.0])
     fun `must calculate correctly`(param: Double) {
         val sin = Sin(BigDecimal(param), 5000)
-       assertEquals(BigDecimal(sin(param)).setScale(13, RoundingMode.UP), sin.decomposition(sin.x, sin.degree).setScale(13, RoundingMode.UP))
+        assertEquals(BigDecimal(sin(param)).setScale(13, RoundingMode.UP), sin.decomposition(sin.x, sin.degree).setScale(13, RoundingMode.UP))
     }
 }
