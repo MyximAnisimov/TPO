@@ -1,7 +1,6 @@
 package itmo.tpo.cool_story
 
 import itmo.tpo.cool_story.HumanActivities.Aknowledge
-import java.util.*
 import kotlin.collections.ArrayDeque
 import kotlin.random.Random
 
@@ -13,11 +12,11 @@ object Arthur : Creature(), HumanActivities {
     override var aknowledge = Aknowledge.CLEVER
 
 private val queueWorkStupid: ArrayDeque<String> = ArrayDeque(listOf(
-        "Артур понял, что он самый тупой",
-        "Артуру стыдно за его тупость",
-        "Артур не знает, как его терпит Форд",
-        "Артур наступил в лужу и промок",
-        "Артур думал, что он встал не с той ноги"
+        "Артуру перестало нравится прогулка с Фордом",
+        "Артур думает, что Форд мог бы быть и поумнее",
+        "Артур написал другим друзьям, чтобы погулять с ними",
+        "Артуру обстановка совсем не по себе",
+        "Артур не понимает, как комар может быть умнее Форда"
     ))
     private val queueWorkClever: ArrayDeque<String> = ArrayDeque(listOf(
         "Артур чувствует себя хорошо",
@@ -28,23 +27,21 @@ private val queueWorkStupid: ArrayDeque<String> = ArrayDeque(listOf(
     ))
     val stateContext: StateContext = StateContext()
 
-    override fun feel(otherHumanKnowledge: Aknowledge) {
-        when(stateContext.state) {
+    override fun feel(otherHumanKnowledge: Aknowledge): String {
+        return when(stateContext.state) {
             is WorkingState -> when(otherHumanKnowledge) {
                 Aknowledge.CLEVER -> {
-                    println(queueWorkClever.first())
                     queueWorkClever.addLast(queueWorkClever.first())
                     queueWorkClever.removeFirst()
                 }
                 Aknowledge.STUPID -> {
-                    println(queueWorkStupid.first())
                     queueWorkStupid.addLast(queueWorkStupid.first())
                     queueWorkStupid.removeFirst()
                 }
             }
             is ChillingState -> when(aknowledge) {
-                Aknowledge.CLEVER -> println("Артур пошел отдыхать")
-                Aknowledge.STUPID -> println("Артур пошел узнавать о Пекине")
+                Aknowledge.CLEVER -> "Артур валяется на гамаке"
+                Aknowledge.STUPID -> "Артур пошел узнавать о Пекине"
             }
         }
     }

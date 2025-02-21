@@ -13,8 +13,8 @@ class StateContext {
         state.work(this)
     }
 
-    fun chill() {
-        state.chill(this)
+    fun chill(name: String) {
+        state.chill(this, name)
     }
 
 

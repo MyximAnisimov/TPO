@@ -1,18 +1,16 @@
 package itmo.tpo.cool_story
 
-import kotlin.random.Random
-
 class WorkingState: State {
     private val name: String = "Возится"
 
-    override fun getName(): String = name;
+    override fun getName(): String = name
 
     override fun work(stateCtx: StateContext) {
         println("Продолжает возиться")
     }
 
-    override fun chill(stateCtx: StateContext) {
-        println("Начал отдыхать")
+    override fun chill(stateCtx: StateContext, name: String) {
+        println("$name начал отдыхать")
         stateCtx.state = ChillingState()
     }
 }

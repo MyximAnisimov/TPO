@@ -4,7 +4,7 @@ class ChillingState: State {
     private val name: String = "Отдыхает"
 
     override fun getName(): String {
-        return name;
+        return name
     }
 
     override fun work(stateCtx: StateContext) {
@@ -12,7 +12,7 @@ class ChillingState: State {
         stateCtx.state = WorkingState()
     }
 
-    override fun chill(stateCtx: StateContext) {
-        println("Продолжает отдыхать")
+    override fun chill(stateCtx: StateContext, name: String) {
+        println("$name продолжает отдыхать")
     }
 }
