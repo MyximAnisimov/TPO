@@ -11,7 +11,7 @@ object Arthur : Creature(), HumanActivities {
     override val knowledgeRate: Double = Random.nextDouble()
     override var aknowledge = Aknowledge.CLEVER
 
-private val queueWorkStupid: ArrayDeque<String> = ArrayDeque(listOf(
+    private val queueWorkStupid: ArrayDeque<String> = ArrayDeque(listOf(
         "Артуру перестало нравится прогулка с Фордом",
         "Артур думает, что Форд мог бы быть и поумнее",
         "Артур написал другим друзьям, чтобы погулять с ними",
