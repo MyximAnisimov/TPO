@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
     implementation("org.postgresql:postgresql:42.7.1")
     testImplementation("org.postgresql:postgresql:42.7.1")
     testImplementation("org.testcontainers:testcontainers:1.19.6")
@@ -23,5 +24,5 @@ tasks.test {
     useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(23)
+    jvmToolchain(11)
 }
