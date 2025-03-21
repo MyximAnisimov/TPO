@@ -1,9 +1,9 @@
-package itmo.tpo
+package itmo.tpo.functions
 
 import kotlin.math.abs
 
-class Ln {
-    fun ln(x: Double, eps: Double): Double {
+open class Ln {
+    open fun ln(x: Double, eps: Double): Double {
         val y = (x - 1) / (x + 1)
         val y2 = y * y
 

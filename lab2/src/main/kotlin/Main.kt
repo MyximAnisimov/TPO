@@ -1,5 +1,6 @@
 package itmo.tpo
 
+import itmo.tpo.functions.*
 import java.io.File
 import java.io.FileWriter
 

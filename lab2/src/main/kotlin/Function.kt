@@ -1,18 +1,17 @@
 package itmo.tpo
 
-import java.io.File
-import java.io.FileWriter
+import itmo.tpo.functions.*
 
 class Function {
-    private val tan: Tan = Tan()
-    private val sec: Sec = Sec()
-    private val csc: Csc = Csc()
+    var tan: Tan = Tan()
+    var sec: Sec = Sec()
+    var csc: Csc = Csc()
 
-    private val ln: Ln = Ln()
-    private val log2: Log = Log(2.0)
-    private val log3: Log = Log(3.0)
-    private val log5: Log = Log(5.0)
-    private val log10: Log = Log(10.0)
+    var ln: Ln = Ln()
+    var log2: Log = Log(2.0)
+    var log3: Log = Log(3.0)
+    var log5: Log = Log(5.0)
+    var log10: Log = Log(10.0)
 
     fun func(x: Double, eps: Double): Double {
         return if (x <= 0) {

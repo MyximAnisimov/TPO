@@ -1,10 +1,10 @@
-package itmo.tpo
+package itmo.tpo.functions
 
-class Tan {
+open class Tan {
     private val sin: Sin = Sin()
     private val cos: Cos = Cos()
 
-    fun tan(x: Double, eps: Double): Double {
+    open fun tan(x: Double, eps: Double): Double {
         return sin.sin(x, eps) / cos.cos(x, eps)
     }
 }
