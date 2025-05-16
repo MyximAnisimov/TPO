@@ -3,6 +3,7 @@ package itmo.tpo
 import itmo.tpo.functions.*
 import java.io.File
 import java.io.FileWriter
+import kotlin.math.cos
 
 fun writeToCSV(x: List<Double>, eps: Double, filename: String, func: (Double, Double) -> Double) {
     val file = File(filename)
@@ -36,6 +37,9 @@ fun main() {
     println("func -10: ${func.func(0.0, 0.0000001)}")
 
     val funcTestValues: List<Double> = listOf(-5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0)
+    val listTest: List<Double> = generateSequence(-10.0) { it + 0.1 }.takeWhile { it <= 10.0 }.toList()
     writeToCSV(funcTestValues, 0.00001, "src/main/resources/FuncTest.csv", func::func)
     writeToCSV(funcTestValues, 0.00001, "src/main/resources/TanTest.csv", sin::sin)
+
+    writeToCSV(listTest, 0.0000001, "src/main/resources/TestFuncMain.csv", func::func)
 }
